@@ -1,0 +1,8 @@
+Create django project: django-admin startproject <project name> {.}
+Run server: poetry run python manage.py runserver
+Create application: poetry run python manage.py startapp <app name>
+Create migrations: poetry run python manage.py makemigrations bboard
+Run migration: poetry run python manage.py migrate
+Run django shell: poetry run python manage.py shell
+Close django shell: exit()
+Create superuser for admin website: poetry run python manage.py createsuperuser
