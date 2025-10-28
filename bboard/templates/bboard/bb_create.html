@@ -1,21 +1,174 @@
+{% load i18n %}
 <!DOCTYPE html>
-<html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
     <head>
         <meta charset="UTF-8">
-        <title>Добавление объявления :: Доска объявлений</title>
+        <title>{% trans "Add advertisement" %} :: {% trans "Bulletin Board" %}</title>
+        <style>
+            .language-switcher {
+                margin: 10px 0;
+                padding: 10px;
+                background-color: #f5f5f5;
+                border-radius: 5px;
+            }
+            .language-switcher select {
+                padding: 5px;
+                border: 1px solid #ddd;
+                border-radius: 3px;
+            }
+            nav a {
+                margin-right: 15px;
+                text-decoration: none;
+                color: #007bff;
+            }
+            nav a:hover {
+                text-decoration: underline;
+            }
+            .form-container {
+                max-width: 600px;
+                margin: 20px 0;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background-color: #f9f9f9;
+            }
+            .form-group {
+                margin-bottom: 15px;
+            }
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ddd;
+                border-radius: 3px;
+                box-sizing: border-box;
+            }
+            .form-group textarea {
+                height: 100px;
+                resize: vertical;
+            }
+            .btn {
+                background-color: #007bff;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 3px;
+                cursor: pointer;
+                margin-right: 10px;
+            }
+            .btn:hover {
+                background-color: #0056b3;
+            }
+            .btn-cancel {
+                background-color: #6c757d;
+            }
+            .btn-cancel:hover {
+                background-color: #545b62;
+            }
+            .error {
+                color: red;
+                font-size: 0.9em;
+                margin-top: 5px;
+            }
+        </style>
     </head>
     <body>
-        <h1>Добавление объявления</h1>
-        <div>
-            <a href="{% url 'index' %}">Главная</a>
+        <h1>{% trans "Add advertisement" %}</h1>
+
+        <!-- Переключатель языков -->
+        <div class="language-switcher">
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.path }}">
+                <select name="language" onchange="this.form.submit()">
+                    {% get_current_language as CURRENT_LANGUAGE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option value="{{ language.code }}"
+                                {% if language.code == CURRENT_LANGUAGE %}selected{% endif %}>
+                            {{ language.name_local }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+
+        <!-- Навигация -->
+        <nav>
+            <a href="{% url 'index' %}">{% trans "Main" %}</a>
             {% for rubric in rubrics %}
             <a href="{% url 'rubric_bbs' rubric.pk %}">{{ rubric.name }}</a>
             {% endfor %}
+        </nav>
+
+        <!-- Форма добавления объявления -->
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+
+                <!-- Заголовок -->
+                <div class="form-group">
+                    <label for="{{ form.title.id_for_label }}">{% trans "Title" %}:</label>
+                    {{ form.title }}
+                    {% if form.title.errors %}
+                    <div class="error">{{ form.title.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Содержание -->
+                <div class="form-group">
+                    <label for="{{ form.content.id_for_label }}">{% trans "Content" %}:</label>
+                    {{ form.content }}
+                    {% if form.content.errors %}
+                    <div class="error">{{ form.content.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Рубрика -->
+                <div class="form-group">
+                    <label for="{{ form.rubric.id_for_label }}">{% trans "Rubric" %}:</label>
+                    {{ form.rubric }}
+                    {% if form.rubric.errors %}
+                    <div class="error">{{ form.rubric.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Цена (если есть в форме) -->
+                {% if form.price %}
+                <div class="form-group">
+                    <label for="{{ form.price.id_for_label }}">{% trans "Price" %}:</label>
+                    {{ form.price }}
+                    {% if form.price.errors %}
+                    <div class="error">{{ form.price.errors }}</div>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                <!-- Кнопки -->
+                <div class="form-group">
+                    <input type="submit" value="{% trans 'Add' %}" class="btn">
+                    <a href="{% url 'index' %}" class="btn btn-cancel">{% trans "Cancel" %}</a>
+                </div>
+            </form>
         </div>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Добавить">
-        </form>
+
+        <!-- Подсказки -->
+        <div style="margin-top: 20px; padding: 15px; background-color: #e7f3ff; border-radius: 5px;">
+            <h3>{% trans "Tips for creating an advertisement" %}:</h3>
+            <ul>
+                <li>{% trans "Write a clear and informative title" %}</li>
+                <li>{% trans "Describe your product or service in detail" %}</li>
+                <li>{% trans "Choose the appropriate rubric" %}</li>
+                <li>{% trans "Specify the price if applicable" %}</li>
+            </ul>
+        </div>
     </body>
 </html>

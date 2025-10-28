@@ -1,0 +1,129 @@
+# English translations for PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-28 19:11+0300\n"
+"PO-Revision-Date: 2025-10-28 19:11+0300\n"
+"Last-Translator: \n"
+"Language-Team: English <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\bboard\models.py:6
+msgid "Товар"
+msgstr "Product"
+
+#: .\bboard\models.py:7
+msgid "Описание"
+msgstr "Description"
+
+#: .\bboard\models.py:8
+msgid "Цена"
+msgstr "Price"
+
+#: .\bboard\models.py:9
+msgid "Опубликовано"
+msgstr "Published"
+
+#: .\bboard\models.py:10 .\bboard\models.py:26
+msgid "Рубрика"
+msgstr "Rubric"
+
+#: .\bboard\models.py:13
+msgid "Объявления"
+msgstr "Advertisements"
+
+#: .\bboard\models.py:14
+msgid "Объявление"
+msgstr "Advertisement"
+
+#: .\bboard\models.py:19
+msgid "Название"
+msgstr "Title"
+
+#: .\bboard\models.py:25
+msgid "Рубрики"
+msgstr "Rubrics"
+
+#: .\bboard\templates\bboard\index.html:5
+#: .\bboard\templates\bboard\index.html:30
+#: .\bboard\templates\bboard\rubric_bbs.html:31
+msgid "Main"
+msgstr "Main"
+
+#: .\bboard\templates\bboard\index.html:5
+#: .\bboard\templates\bboard\rubric_bbs.html:5
+msgid "Bulletin Board"
+msgstr "Bulletin Board"
+
+#: .\bboard\templates\bboard\index.html:8
+#: .\bboard\templates\bboard\rubric_bbs.html:8
+msgid "Advertisements"
+msgstr "Advertisements"
+
+#: .\bboard\templates\bboard\index.html:34
+#: .\bboard\templates\bboard\rubric_bbs.html:35
+msgid "Add"
+msgstr "Add"
+
+#: .\bboard\templates\bboard\index.html:46
+msgid "No advertisements available"
+msgstr "No advertisements available"
+
+#: .\bboard\templates\bboard\index.html:52
+#, python-format
+msgid ""
+"\n"
+"                There is %(counter)s advertisement.\n"
+"                "
+msgid_plural ""
+"\n"
+"                There are %(counter)s advertisements.\n"
+"                "
+msgstr[0] ""
+"\n"
+"                There is %(counter)s advertisement.\n"
+"                "
+msgstr[1] ""
+"\n"
+"                There are %(counter)s advertisements.\n"
+"                "
+
+#: .\bboard\templates\bboard\rubric_bbs.html:9
+msgid "Rubric"
+msgstr "Rubric"
+
+#: .\bboard\templates\bboard\rubric_bbs.html:45
+msgid "No advertisements in this rubric"
+msgstr "No advertisements in this rubric"
+
+#: .\bboard\templates\bboard\rubric_bbs.html:51
+#, python-format
+msgid ""
+"\n"
+"                There is %(counter)s advertisement in this rubric.\n"
+"                "
+msgid_plural ""
+"\n"
+"                There are %(counter)s advertisements in this rubric.\n"
+"                "
+msgstr[0] ""
+"\n"
+"                There is %(counter)s advertisement in this rubric.\n"
+"                "
+msgstr[1] ""
+"\n"
+"                There are %(counter)s advertisements in this rubric.\n"
+"                "
+
+#: .\bboard\views.py:28
+msgid "Parameter lang can take values en or ru"
+msgstr "Parameter lang can take values en or ru"

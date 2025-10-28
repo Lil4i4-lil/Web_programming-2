@@ -16,9 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('bboard/', include('bboard.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),  # для смены языка
 ]
+
+# URL-паттерны с поддержкой i18n (для основного приложения)
+urlpatterns += i18n_patterns(
+    path('bboard/', include('bboard.urls')),  # теперь это работает правильно
+    # добавьте другие пути с поддержкой i18n здесь
+    prefix_default_language=False,  # опционально: убрать префикс для языка по умолчанию
+)
