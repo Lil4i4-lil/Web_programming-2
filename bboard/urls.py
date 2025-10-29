@@ -5,5 +5,4 @@ urlpatterns = [
     path('', index, name='index'),
     path('<int:rubric_id>/', rubric_bbs, name='rubric_bbs'),
     path('add/', BbCreateView.as_view(), name='add'),
-    # НИКАКИХ i18n_patterns здесь!
 ]
