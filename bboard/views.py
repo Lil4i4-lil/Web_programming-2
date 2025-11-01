@@ -2,6 +2,8 @@ from django.http import HttpRequest
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
+from django.http import HttpResponseRedirect
+from django.utils import translation
 from .models import Bb, Rubric
 from .forms import BbForm
 
@@ -15,6 +17,13 @@ class BbCreateView(CreateView):
         context = super().get_context_data(**kwargs)
         context['rubrics'] = Rubric.objects.all()
         return context
+
+
+def set_language(request, language):
+    translation.activate(language)
+    response = HttpResponseRedirect('/bboard/')
+    response.set_cookie('django_language', language, max_age=30*24*60*60)  # 30 дней
+    return response
 
 
 def index(request: HttpRequest):

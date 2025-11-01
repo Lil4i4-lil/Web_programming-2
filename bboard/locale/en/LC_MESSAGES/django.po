@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-01 14:30+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\templates\bboard\bb_create.html:6 .\templates\bboard\bb_create.html:9
+msgid "Добавление объявления"
+msgstr "Add advertisement"
+
+#: .\templates\bboard\bb_create.html:6 .\templates\bboard\index.html:6
+#: .\templates\bboard\rubric_bbs.html:6
+msgid "Доска объявлений"
+msgstr "Bulletin Board"
+
+#: .\templates\bboard\bb_create.html:11 .\templates\bboard\index.html:6
+#: .\templates\bboard\index.html:11 .\templates\bboard\rubric_bbs.html:12
+msgid "Главная"
+msgstr "Main page"
+
+#: .\templates\bboard\bb_create.html:19 .\templates\bboard\index.html:15
+#: .\templates\bboard\rubric_bbs.html:16
+msgid "Добавить"
+msgstr "Add"
+
+#: .\templates\bboard\index.html:9 .\templates\bboard\rubric_bbs.html:9
+msgid "Объявления"
+msgstr "Advertisement"
+
+#: .\templates\bboard\index.html:20
+msgid "Описание"
+msgstr "Description"
+
+#: .\templates\bboard\index.html:21 .\templates\bboard\rubric_bbs.html:10
+msgid "Рубрика"
+msgstr "Rubric"
+
+#: .\templates\bboard\index.html:23
+msgid "Дата публикации"
+msgstr "Date of publication"
