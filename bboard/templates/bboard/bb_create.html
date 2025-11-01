@@ -1,13 +1,14 @@
+{% load i18n %}
 <!DOCTYPE html>
-<html>
+<html lang="{{ LANGUAGE_CODE }}">
     <head>
         <meta charset="UTF-8">
-        <title>Добавление объявления :: Доска объявлений</title>
+        <title>{% trans "Добавление объявления" %} :: {% trans "Доска объявлений" %}</title>
     </head>
     <body>
-        <h1>Добавление объявления</h1>
+        <h1>{% trans "Добавление объявления" %}</h1>
         <div>
-            <a href="{% url 'index' %}">Главная</a>
+            <a href="{% url 'index' %}">{% trans "Главная" %}</a>
             {% for rubric in rubrics %}
             <a href="{% url 'rubric_bbs' rubric.pk %}">{{ rubric.name }}</a>
             {% endfor %}
@@ -15,7 +16,7 @@
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Добавить">
+            <input type="submit" value="{% trans 'Добавить' %}">
         </form>
     </body>
 </html>

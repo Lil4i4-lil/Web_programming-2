@@ -1,24 +1,25 @@
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
     <head>
         <meta charset="UTF-8">
-        <title>{{ current_rubric.name }} :: Доска объявлений</title>
+        <title>{{ current_rubric.name }} :: {% trans "Доска объявлений" %}</title>
     </head>
     <body>
-        <h1>Объявления</h1>
-        <h2>Рубрика: {{ current_rubric.name }}</h2>
+        <h1>{% trans "Объявления" %}</h1>
+        <h2>{% trans "Рубрика" %}: {{ current_rubric.name }}</h2>
         <div>
-            <a href="/bboard/">Главная</a>
+            <a href="/bboard/">{% trans "Главная" %}</a>
             {% for rubric in rubrics %}
             <a href="/bboard/{{ rubric.pk }}/">{{ rubric.name }}</a>
             {% endfor %}
-            <a href="{% url 'add' %}">Добавить</a>
+            <a href="{% url 'add' %}">{% trans "Добавить" %}</a>
         </div>
         {% for bb in bbs %}
         <div>
             <h2>{{ bb.title }}</h2>
-            <p>{{ bb.content }}</p>
-            <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
+            <p><strong>{% trans "Описание" %}:</strong> {{ bb.content }}</p>
+            <p><strong>{% trans "Дата публикации" %}:</strong> {{ bb.published|date:"d.m.Y H:i:s" }}</p>
         </div>
         {% endfor %}
     </body>

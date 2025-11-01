@@ -1,8 +1,28 @@
-Create django project: django-admin startproject <project name> {.}
-Run server: poetry run python manage.py runserver
-Create application: poetry run python manage.py startapp <app name>
-Create migrations: poetry run python manage.py makemigrations bboard
-Run migration: poetry run python manage.py migrate
-Run django shell: poetry run python manage.py shell
+-1- - poetry run python manage.py
+
+Create django project: django-admin startproject <project name> [.]
+Run server: -1- runserver
+
+Create application: -1- startapp <app name>
+
+Generate model based on existing database: -1- inspectdb <tables name>
+[--database <db name>] [--include views] [--include partitions]
+
+
+Create migrations: -1- makemigrations <app name>
+Run migration: -1- migrate [app name [migration module name]]
+Check migration SQL commands: -1- sqlmigrate <app name> <migration module name>
+[--database <db name>] [--backwards]
+Show list of migrations: -1- showmigrations [app names] [--database <db name>] [--plan|-p]
+Optimize migration: -1- optimizemigration <app name> <migration module name> [--check]
+Merge migrations: -1- squashmigrations <app name> [first migration module name] <last migration module name>
+[--squashed_name <result migration module name>] [--no-optimize] [--noinput|--no-input] [--no-header]
+Flush database: -1- flush [--database <db name>] [--noinput|--no-input]
+Check flush migration SQL commands: -1- sqlflush [--database <db name>]
+Cancel migration: -1- migrate [app name [not cancelled migration module name]]
+Cancel all migrations: -1- migrate [app name zero]
+
+Run django shell: -1- shell
 Close django shell: exit()
-Create superuser for admin website: poetry run python manage.py createsuperuser
+
+Create superuser for admin website: -1- createsuperuser

@@ -1,25 +1,26 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Главная :: Доска объявлений</title>
+        <title>{% trans "Главная" %} :: {% trans "Доска объявлений" %}</title>
     </head>
     <body>
-        <h1>Объявления</h1>
+        <h1>{% trans "Объявления" %}</h1>
         <div>
-            <a href="{% url 'index' %}">Главная</a>
+            <a href="{% url 'index' %}">{% trans "Главная" %}</a>
             {% for rubric in rubrics %}
             <a href="{% url 'rubric_bbs' rubric.pk %}">{{ rubric.name }}</a>
             {% endfor %}
-            <a href="{% url 'add' %}">Добавить</a>
+            <a href="{% url 'add' %}">{% trans "Добавить" %}</a>
         </div>
         {% for bb in bbs %}
         <div>
             <h2>{{ bb.title }}</h2>
-            <p>{{ bb.content }}</p>
-            <p><a href="{% url 'rubric_bbs' bb.rubric.pk %}">
+            <p><strong>{% trans "Описание" %}:</strong> {{ bb.content }}</p>
+            <p><strong>{% trans "Рубрика" %}:</strong><a href="{% url 'rubric_bbs' bb.rubric.pk %}">
             {{ bb.rubric.name }}</a></p>
-            <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
+            <p><strong>{% trans "Дата публикации" %}:</strong> {{ bb.published|date:"d.m.Y H:i:s" }}</p>
         </div>
         {% endfor %}
     </body>
